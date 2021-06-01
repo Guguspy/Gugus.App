@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bright_red">#F33E31</color>
+    <color name="application_background">#03A9F4</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="colorGradientStart">#CC0F7693</color>
+    <color name="colorGradientCenter">#CC32C7CC</color>
+    <color name="colorGradientEnd">#CC00F7FF</color>
+
+    <color name="circleone">#1B2C9E</color>
+    <color name="circletwo">#814A06</color>
+    <color name="gradiant1">#458684</color>
+    <color name="gradiant2">#7FF8D6</color>
+
+    <color name="colorPrimary">#2BCC6F</color>
+    <color name="colorPrimaryDark">#2BCC6F</color>
+    <color name="colorAccent2">#333333</color>
+    <color name="colorPrimaryLight">#E9F8F1</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBackground">#EBEBEB</color>
+    <color name="colorTrendingStart">#00B09B</color>
+    <color name="colorTrendingEnd">#96C93D</color>
+    <color name="colorDivider">#D6D6D6</color>
+
+    <color name="couleurNom">#091D3C</color>
+
+
+
+</resources>

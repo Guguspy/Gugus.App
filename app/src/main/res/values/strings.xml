@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Gugus.App</string>
+    <string name="version">Version 0.5</string>
+    <string name="quote1">Les riches s\'enrichissent parce que les moins riches pensent que toutes les opportunités sont des arnaques.</string>
+    <string name="quote2">L\'oreille qui t\'écoute peut être la bouche qui te trahit.</string>
+    <string name="quote3">La révolution informatique fait gagner un temps fou aux hommes, mais ils le passent avec leur ordinateur.</string>
+    <string name="quote4">L\'informatique, ça fait gagner beaucoup de temps... à condition d\'en avoir beaucoup devant soi.</string>
+    <string name="quote5">Un geek informatique est un fils de boot.</string>
+
+
+    <string name="infoGene">Informations générales</string>
+    <string name="nonDispo">Non disponible</string>
+    <string name="textModel">Modèle</string>
+    <string name="textManuf">Fabriquant</string>
+    <string name="textNomHard">Nom du hardware</string>
+    <string name="textDev">Appareil</string>
+    <string name="textBoard">Board</string>
+    <string name="textCode">Code version</string>
+    <string name="textRel">Release version</string>
+    <string name="textVerSDK">SDK version</string>
+    <string name="textOS">Système d\'exploitation</string>
+    <string name="textArchOS">Architecture système</string>
+    <string name="textVerJava">Version Java</string>
+    <string name="textProduit">Nom du produit</string>
+    <string name="textId">Id produit</string>
+    <string name="menu_principal">Menu principal</string>
+    <string name="textSonnerie">Sonnerie en mode</string>
+    <string name="sonNormal">Sonnerie</string>
+    <string name="sonVibreur">Vibreur</string>
+    <string name="sonSilence">Silencieux</string>
+    <string name="turnonwifi">Click to Turn on Wifi</string>
+
+</resources>

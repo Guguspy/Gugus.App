@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen"
+    android:background="@drawable/gradiant_background"
+    android:id="@+id/splash_screen_activity_xml">
+
+    <!--<ImageView
+        android:id="@+id/IV_Penguin_Head"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/penguin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />-->
+
+    <!--<pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="526dp"
+        android:layout_height="175dp"
+        android:src="@drawable/penguin_love"
+
+        app:layout_constraintBottom_toTopOf="@+id/LayoutFrameLetter"
+        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505" />-->
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="410dp"
+        android:layout_height="307dp"
+        android:src="@drawable/penguin_code"
+
+        app:layout_constraintBottom_toTopOf="@+id/LayoutFrameLetter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/LayoutFrameLetter"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/TV_Letter_G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+            android:text="G"
+
+            android:textColor="#000"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/TV_Letter_U" />
+
+        <TextView
+            android:id="@+id/TV_Letter_U"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+            android:text="u"
+            android:textColor="#000"
+
+            android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toRightOf="@+id/TV_Letter_G"
+            app:layout_constraintRight_toLeftOf="@+id/TV_Letter_G2" />
+
+        <TextView
+            android:id="@+id/TV_Letter_G2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+            android:text="g"
+            android:textColor="#000"
+
+            android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toRightOf="@+id/TV_Letter_U"
+            app:layout_constraintRight_toLeftOf="@+id/TV_Letter_U2" />
+
+        <TextView
+            android:id="@+id/TV_Letter_U2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+            android:text="u"
+            android:textColor="#000"
+
+            android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toRightOf="@+id/TV_Letter_G2"
+            app:layout_constraintRight_toLeftOf="@+id/TV_Letter_S" />
+
+    <TextView
+        android:id="@+id/TV_Letter_S"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/amarante"
+
+        app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+        app:layout_constraintLeft_toRightOf="@+id/TV_Letter_U2"
+        app:layout_constraintRight_toLeftOf="@+id/TV_Letter_."
+
+        android:text="s"
+        android:textSize="35dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/TV_Letter_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/amarante"
+
+        app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+        app:layout_constraintLeft_toRightOf="@+id/TV_Letter_S"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:text="."
+        android:textSize="45dp"
+        android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/TV_Letter_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/TV_Letter_P"
+
+            android:layout_marginTop="40dp"
+
+            android:text="A"
+            android:textSize="35dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/TV_Letter_P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/amarante"
+
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toRightOf="@+id/TV_Letter_A"
+            app:layout_constraintRight_toLeftOf="@+id/TV_LetterP2"
+
+            android:layout_marginTop="50dp"
+
+            android:text="P"
+            android:textSize="30dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/TV_Letter_P2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toTopOf="@+id/pb_splash"
+            app:layout_constraintLeft_toRightOf="@+id/TV_Letter_P"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:fontFamily="@font/amarante"
+
+            android:layout_marginTop="50dp"
+
+            android:text="P"
+            android:textSize="30dp"
+            android:textColor="#000"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TV_Version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:fontFamily="@font/candal"
+        android:text="@string/version"
+        android:textColor="#000"
+
+        android:layout_marginBottom="25dp"
+
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <!--<ProgressBar
+        android:id="@+id/pb_splash"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutFrameLetter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/circle"
+        />-->
+
+        <!--android:progressDrawable="@drawable/circle"
+        android:indeterminate="true"-->
+
+    <!--<TextView
+        android:id="@+id/TVpb_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb_splash"
+
+        android:textColor="#FFF"
+        android:textSize="20dp"
+
+        android:text="Chargement ..."/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

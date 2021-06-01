@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    tools:context=".BatteryInfo">
+
+    <TextView
+        android:id="@+id/TV_Titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layoutbattery2"
+
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="50dp"
+
+        android:text="Battery Info"
+        android:textSize="50dp"
+        android:textColor="#000"/>
+
+
+    <LinearLayout
+        android:id="@+id/layoutbattery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Titre"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back" />
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:id="@+id/layoutbattery2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Titre"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back">
+
+        <TableLayout
+            android:background="#FFF"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TableRow>
+
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:layout_span="2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                    <ProgressBar
+                        android:id="@+id/pb"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:progressDrawable="@drawable/progressbar_states"
+                        android:layout_gravity="center_horizontal"/>
+                    <TextView
+                        android:id="@+id/tv_pourcentage"
+                        android:text="[••] %"
+                        android:textSize="25sp"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/couleurNom"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+                </RelativeLayout>
+            </TableRow>
+        </TableLayout>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="180dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:id="@+id/textview1"
+                android:textAlignment="textEnd"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="test"
+                />
+            <TextView
+                android:id="@+id/textview2"
+                android:text="test"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+
+        </TableRow>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_home_24"
+        android:padding="5dp"
+
+        android:onClick="backhome"
+
+        android:background="@drawable/button_style_1"
+
+
+        android:layout_marginBottom="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutbattery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
