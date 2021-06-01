@@ -1,1 +1,4 @@
 /build
+# Java class files
+Utils.class
+Utils.java
