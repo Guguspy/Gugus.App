@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     int max = 2;
     TextView QuoteInfoView;
 
-    LinearLayout layoutinfoappareil,layoutCpu,layoutNetwork,layoutSensor,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail,layoutDoge,layoutWait;
+    LinearLayout layoutcryptoCurrency, layoutqrCode, layoutinfoappareil,layoutCpu,layoutNetwork,layoutSensor,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail,layoutDoge,layoutWait;
     Animation scale_up, scale_down;
 
     Handler handler = new Handler();
@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
             QuoteInfoView.setText(quote5);
         }
 
+
+        layoutcryptoCurrency = findViewById(R.id.layoutcryptoCurrency);
+        layoutqrCode = findViewById(R.id.layoutqrCode);
         layoutinfoappareil = findViewById(R.id.layoutinfoappareil);
         layoutCpu = findViewById(R.id.layoutCpu);
         layoutNetwork= findViewById(R.id.layoutNetwork);
@@ -121,6 +124,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    public void cryptoCurrency(View view) {
+        layoutcryptoCurrency.startAnimation(scale_up);
+        layoutcryptoCurrency.startAnimation(scale_down);
+        Intent cryptoCurrency = new Intent(MainActivity.this, DeviceInfo.class);
+        this.finish();
+        startActivity(cryptoCurrency);
+    }
+
+    public void qrCode(View view) {
+        layoutqrCode.startAnimation(scale_up);
+        layoutqrCode.startAnimation(scale_down);
+        Intent QrCode = new Intent(MainActivity.this, QRcodeScan_and_Create.class);
+        this.finish();
+        startActivity(QrCode);
+    }
 
     public void InfoDevice(View view) {
         layoutinfoappareil.startAnimation(scale_up);
@@ -232,5 +251,4 @@ public class MainActivity extends AppCompatActivity {
     public void Menu_Item_Setting(MenuItem item) {
         Toast.makeText(this, "[En cours de developpement]", Toast.LENGTH_SHORT).show();
     }
-
 }

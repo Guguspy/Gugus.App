@@ -53,6 +53,12 @@ dependencies {
     implementation'com.mafstech.libs:mafs-image-shape:1.0.4'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.4'
+    implementation 'com.google.zxing:core:3.3.2'
+
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    implementation 'com.karumi:dexter:6.0.0'
 
     implementation files('libs/mail.jar')
     implementation files('libs/activation.jar')

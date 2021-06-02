@@ -180,8 +180,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/layoutinfoappareil"
-                android:onClick="InfoDevice"
+                android:id="@+id/layoutcryptoCurrency"
+                android:onClick="cryptoCurrency"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -200,15 +200,15 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
-                    android:src="@drawable/infodevice"/>
+                    android:src="@drawable/cryptoicon"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Info"
+                    android:text="CryptoTracker"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -216,8 +216,8 @@
 
 
             <LinearLayout
-                android:id="@+id/layoutCpu"
-                android:onClick="CpuView"
+                android:id="@+id/layoutqrCode"
+                android:onClick="qrCode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -236,6 +236,76 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
+                    android:src="@drawable/qrcode"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="qrCode"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutinfoappareil"
+                android:onClick="InfoDevice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutcryptoCurrency"
+                app:layout_constraintRight_toLeftOf="@+id/layoutCpu"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/infodevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Info"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutCpu"
+                android:onClick="CpuView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutqrCode"
+                app:layout_constraintLeft_toRightOf="@+id/layoutinfoappareil"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
                     android:src="@drawable/cpu"/>
 
                 <TextView
@@ -244,7 +314,7 @@
                     android:gravity="center"
                     android:text="CPU"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -278,7 +348,7 @@
                     android:gravity="center"
                     android:text="Réseau"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -312,7 +382,7 @@
                     android:gravity="center"
                     android:text="Capteur"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -348,7 +418,7 @@
                     android:gravity="center"
                     android:text="Batterie"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -382,7 +452,7 @@
                     android:gravity="center"
                     android:text="Mémoire"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -417,7 +487,7 @@
                     android:gravity="center"
                     android:text="Affichage"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -453,7 +523,7 @@
                     android:gravity="center"
                     android:text="Stockage"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -488,7 +558,7 @@
                     android:gravity="center"
                     android:text="Message"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -522,7 +592,7 @@
                     android:gravity="center"
                     android:text="Temp Mail"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -556,7 +626,7 @@
                     android:gravity="center"
                     android:text="Doge Money"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -590,7 +660,7 @@
                     android:gravity="center"
                     android:text="En cours"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
