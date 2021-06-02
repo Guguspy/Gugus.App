@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     public void cryptoCurrency(View view) {
         layoutcryptoCurrency.startAnimation(scale_up);
         layoutcryptoCurrency.startAnimation(scale_down);
-        Intent cryptoCurrency = new Intent(MainActivity.this, DeviceInfo.class);
+        Intent cryptoCurrency = new Intent(MainActivity.this, CryptoTracker.class);
         this.finish();
         startActivity(cryptoCurrency);
     }
