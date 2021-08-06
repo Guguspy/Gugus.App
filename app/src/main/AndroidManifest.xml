@@ -18,9 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".CryptoTracker"></activity>
+        <activity android:name=".sharedpreferencesTEST"></activity>
+        <activity android:name=".SendMail_Settings" />
+        <activity android:name=".SendMailFast" />
+        <activity android:name=".CryptoTracker_Settings" />
+        <activity android:name=".CryptoTracker" />
         <activity android:name=".QRcodeScan" />
-        <activity android:name=".QRcodeScan_and_Create" />
+        <activity android:name=".QRcodeCreate" />
         <activity android:name=".StorageInfo" />
         <activity android:name=".MemoryInfo" />
         <activity android:name=".CpuInfo" />
@@ -37,9 +41,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".tempsmail"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Doge_view"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

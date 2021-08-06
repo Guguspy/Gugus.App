@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -61,15 +62,19 @@ public class CpuInfo extends AppCompatActivity {
 
         textView.setText(Holder);
 
-
     }
 
 
-    public void backhome(View view) {
-        btn_back.startAnimation(scale_up);
-        btn_back.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(CpuInfo.this, MainActivity.class);
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(Menu_Item_Back);
+    }
+
+    public void Menu_Item_Back(MenuItem item) {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
     }
 }

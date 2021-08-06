@@ -9,24 +9,28 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class CryptoTracker extends AppCompatActivity {
+public class SendMail_Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crypto_tracker);
+        setContentView(R.layout.activity_send_mail__settings);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewCryptoTracker);
-        bottomNavigationView.setSelectedItemId(R.id.cryptotracker);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewSendMail);
+        bottomNavigationView.setSelectedItemId(R.id.settings_IDMail);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.cryptotracker:
+                    case R.id.settings_IDMail:
                         return true;
-                    case R.id.settings_cryptotracker:
-                        startActivity(new Intent(getApplicationContext(), CryptoTracker_Settings.class));
+                    case R.id.SendMail:
+                        startActivity(new Intent(getApplicationContext(), SendMail.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.SendMailFast:
+                        startActivity(new Intent(getApplicationContext(), SendMailFast.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
@@ -42,9 +46,9 @@ public class CryptoTracker extends AppCompatActivity {
         startActivity(Menu_Item_Back);
     }
 
-    public void Menu_Item_QrCode_Back(MenuItem item) {
-        Intent Menu_Item_QrCode_Back = new Intent(this, MainActivity.class);
+    public void Menu_Item_SendMail_Back(MenuItem item) {
+        Intent Menu_Item_SendMail_Back = new Intent(this, MainActivity.class);
         this.finish();
-        startActivity(Menu_Item_QrCode_Back);
+        startActivity(Menu_Item_SendMail_Back);
     }
 }

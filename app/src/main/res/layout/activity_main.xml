@@ -190,8 +190,9 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@+id/layoutinfoappareil"
                 app:layout_constraintTop_toBottomOf="@id/LayoutShowInfo"
-                app:layout_constraintRight_toLeftOf="@+id/layoutCpu"
+                app:layout_constraintRight_toLeftOf="@+id/layoutqrCode"
                 app:layout_constraintLeft_toLeftOf="parent">
 
                 <ImageView
@@ -227,7 +228,8 @@
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintTop_toBottomOf="@id/LayoutShowInfo"
-                app:layout_constraintLeft_toRightOf="@+id/layoutinfoappareil"
+                app:layout_constraintBottom_toTopOf="@+id/layoutMail"
+                app:layout_constraintLeft_toRightOf="@+id/layoutcryptoCurrency"
                 app:layout_constraintRight_toRightOf="parent">
 
                 <ImageView
@@ -260,8 +262,9 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@+id/layoutTempMail"
                 app:layout_constraintTop_toBottomOf="@id/layoutcryptoCurrency"
-                app:layout_constraintRight_toLeftOf="@+id/layoutCpu"
+                app:layout_constraintRight_toLeftOf="@+id/layoutMail"
                 app:layout_constraintLeft_toLeftOf="parent">
 
                 <ImageView
@@ -286,250 +289,6 @@
 
 
             <LinearLayout
-                android:id="@+id/layoutCpu"
-                android:onClick="CpuView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutqrCode"
-                app:layout_constraintLeft_toRightOf="@+id/layoutinfoappareil"
-                app:layout_constraintRight_toRightOf="parent">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/cpu"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="CPU"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutNetwork"
-                android:onClick="NetworkInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutinfoappareil"
-                app:layout_constraintRight_toLeftOf="@+id/layoutSensor"
-                app:layout_constraintLeft_toLeftOf="parent">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/connexion"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Réseau"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutSensor"
-                android:onClick="SensorView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutCpu"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/layoutNetwork">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/sensor"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Capteur"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/layoutBattery"
-                android:onClick="BatteryView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutNetwork"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/layoutmemory">
-
-                <ImageView
-                    android:id="@+id/ImageViewBatteryLogo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/battery_f"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Batterie"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutmemory"
-                android:onClick="RAMView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutSensor"
-                app:layout_constraintLeft_toRightOf="@+id/layoutBattery"
-                app:layout_constraintRight_toRightOf="parent">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/ram"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Mémoire"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/layoutDisplay"
-                android:onClick="DisplayView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutBattery"
-                app:layout_constraintRight_toLeftOf="@+id/layoutstorage"
-                app:layout_constraintLeft_toLeftOf="parent">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/display"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Affichage"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:id="@+id/layoutstorage"
-                android:onClick="StorageView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutmemory"
-                app:layout_constraintLeft_toRightOf="@+id/layoutDisplay"
-                app:layout_constraintRight_toRightOf="parent">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/storage"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Stockage"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
                 android:id="@+id/layoutMail"
                 android:onClick="SendMail_view"
                 android:layout_width="0dp"
@@ -540,9 +299,10 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/layoutTempMail"
-                app:layout_constraintTop_toBottomOf="@id/layoutDisplay">
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/layoutWait"
+                app:layout_constraintLeft_toRightOf="@+id/layoutinfoappareil"
+                app:layout_constraintTop_toBottomOf="@id/layoutqrCode">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -574,9 +334,10 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutstorage"
-                app:layout_constraintLeft_toRightOf="@+id/layoutMail"
-                app:layout_constraintRight_toRightOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/layoutinfoappareil"
+                app:layout_constraintRight_toLeftOf="@+id/layoutWait"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -597,39 +358,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layoutDoge"
-                android:onClick="Doge_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/white_rectangle_background"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutMail"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/layoutWait">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="8dp"
-                    android:src="@drawable/startup"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Doge Money"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layoutWait"
@@ -642,8 +370,9 @@
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toBottomOf="@id/layoutTempMail"
-                app:layout_constraintLeft_toRightOf="@+id/layoutDoge"
+                app:layout_constraintTop_toBottomOf="@id/layoutMail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/layoutTempMail"
                 app:layout_constraintRight_toRightOf="parent">
 
                 <ImageView

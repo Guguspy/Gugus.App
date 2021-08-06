@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/Back"
+        android:icon="@drawable/ic_home_x48"
+        android:onClick="Menu_Item_SendMail_Back"
+        android:title="Back"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/SendMail"
+        android:icon="@drawable/ic_mail_x128"
+        android:title="Send Mail"/>
+
+    <item android:id="@+id/SendMailFast"
+        android:icon="@drawable/ic_send_x64"
+        android:title="Send Mail"/>
+    <!-- android:actionLayout="" -->
+
+
+    <item android:id="@+id/settings_IDMail"
+        android:icon="@drawable/settings_x48"
+        android:title="Settings"/>
+    <!--  -->
+
+</menu>

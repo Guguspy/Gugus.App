@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/cryptotracker"
+        android:icon="@drawable/coin_x48"
+        android:title="Coins"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/Back"
+        android:icon="@drawable/ic_home_x48"
+        android:onClick="Menu_Item_QrCode_Back"
+        android:title="Back"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/settings_cryptotracker"
+        android:icon="@drawable/settings_x48"
+        android:title="Settings"/>
+    <!--  -->
+
+</menu>

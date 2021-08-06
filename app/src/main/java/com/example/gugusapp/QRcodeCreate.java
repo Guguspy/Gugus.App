@@ -1,30 +1,31 @@
 package com.example.gugusapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Bundle;
-import android.view.Display;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
-public class QRcodeScan_and_Create extends AppCompatActivity {
+public class QRcodeCreate extends AppCompatActivity {
     ImageButton btn_back;
     Animation scale_up, scale_down;
 
     EditText qrCodeEntry;
-    ImageButton QRCODEgenerate, QRCODEScan;
+    ImageButton QRCODEgenerate;
     ImageView qrCodeView;
 
 
@@ -35,11 +36,28 @@ public class QRcodeScan_and_Create extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode_scan_and__create);
+        setContentView(R.layout.activity_qrcode_create);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewQrcode);
+        bottomNavigationView.setSelectedItemId(R.id.generateqrcode);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.generateqrcode:
+                        return true;
+                    case R.id.scanqrcode:
+                        startActivity(new Intent(getApplicationContext(), QRcodeScan.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         qrCodeEntry = findViewById(R.id.qrCodeEntry);
         QRCODEgenerate = findViewById(R.id.QRCODEgenerate);
-        QRCODEScan = findViewById(R.id.QRCODEScan);
         qrCodeView = findViewById(R.id.qrCodeView);
 
 
@@ -48,6 +66,14 @@ public class QRcodeScan_and_Create extends AppCompatActivity {
         scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, MainActivity.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
+    }
+
 
 
     public void QRCODEgenerate(View view) {
@@ -70,18 +96,13 @@ public class QRcodeScan_and_Create extends AppCompatActivity {
         }
     }
 
-    public void QRCODEScan(View view) {
-        Intent QRCodeScan = new Intent(QRcodeScan_and_Create.this, QRcodeScan.class);
-        startActivity(QRCodeScan);
+
+    public void Menu_Item_QrCode_Back(MenuItem item) {
+        Intent Menu_Item_QrCode_Back = new Intent(this, MainActivity.class);
+        this.finish();
+        startActivity(Menu_Item_QrCode_Back);
     }
 
-    public void backhome(View view) {
-        btn_back.startAnimation(scale_up);
-        btn_back.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(QRcodeScan_and_Create.this, MainActivity.class);
-        this.finish();
-        startActivity(BTN_Back);
-    }
 }
 
 

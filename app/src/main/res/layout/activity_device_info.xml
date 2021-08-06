@@ -4,199 +4,564 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".DeviceInfo"
     android:background="@color/colorPrimaryLight"
-    tools:context=".DeviceInfo">
+    android:id="@+id/splash_screen_activity_xml">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/LayoutInfoDevice"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_back"
-        android:background="@drawable/white_rectangle_background">
+        android:background="@drawable/header_background"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:textColor="#000"
-            android:id="@+id/infoGene"
+            android:id="@+id/textHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/infoGene"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:text="Device"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textHeader2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:text="Info"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textHeader"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ImageMenu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/infodevice"
+            app:layout_constraintBottom_toBottomOf="@id/textHeader"
             app:layout_constraintEnd_toEndOf="parent"
-            />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".5"
-            />
+            app:layout_constraintTop_toTopOf="@id/textHeader"/>
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/textManuf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textManuf"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/infoGene"
-            app:layout_constraintBottom_toTopOf="@id/textProduit"
-            app:layout_constraintEnd_toStartOf="@+id/guideInfo"
-            app:layout_constraintStart_toStartOf="parent"
-
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/infoManuf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nonDispo"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@id/infoGene"
-            app:layout_constraintBottom_toTopOf="@+id/infoProduit"
-            app:layout_constraintStart_toEndOf="@+id/guideInfo"
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/textProduit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textProduit"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textManuf"
-            app:layout_constraintEnd_toStartOf="@+id/guideInfo"
-            app:layout_constraintBottom_toTopOf="@id/textId"
-            app:layout_constraintStart_toStartOf="parent"
-
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/infoProduit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nonDispo"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@id/infoManuf"
-            app:layout_constraintBottom_toTopOf="@+id/infoId"
-            app:layout_constraintStart_toEndOf="@+id/guideInfo"
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/textId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textId"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textProduit"
-            app:layout_constraintEnd_toStartOf="@+id/guideInfo"
-            app:layout_constraintBottom_toTopOf="@id/textNomHard"
-            app:layout_constraintStart_toStartOf="parent"
-
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/infoId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nonDispo"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@id/infoProduit"
-            app:layout_constraintBottom_toTopOf="@+id/infoNomHard"
-            app:layout_constraintStart_toEndOf="@+id/guideInfo"
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/textNomHard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textNomHard"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textId"
-            app:layout_constraintEnd_toStartOf="@+id/guideInfo"
-            app:layout_constraintBottom_toTopOf="@id/textSonnerie"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/infoNomHard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nonDispo"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@id/infoId"
-            app:layout_constraintBottom_toTopOf="@+id/modeSonnerie"
-            app:layout_constraintStart_toEndOf="@+id/guideInfo"
-            />
-        <TextView
-            android:layout_marginTop="40dp"
-            android:paddingBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/textSonnerie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textSonnerie"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textNomHard"
-            app:layout_constraintEnd_toStartOf="@+id/guideInfo"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-        <TextView
-            android:layout_marginTop="40dp"
-            android:paddingBottom="20dp"
-            android:textColor="#000"
-            android:id="@+id/modeSonnerie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nonDispo"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/infoNomHard"
-            app:layout_constraintStart_toStartOf="@id/guideInfo"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
+
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/BottomNavViewDeviceInfo"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/LayoutShowInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/trending_background"
+                android:padding="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:textColor="#000"
+                    android:id="@+id/infoGene"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/infoGene"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5"
+                    />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/textManuf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textManuf"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/infoGene"
+                    app:layout_constraintBottom_toTopOf="@id/textProduit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideInfo"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/infoManuf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nonDispo"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/infoGene"
+                    app:layout_constraintBottom_toTopOf="@+id/infoProduit"
+                    app:layout_constraintStart_toEndOf="@+id/guideInfo"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/textProduit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textProduit"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textManuf"
+                    app:layout_constraintEnd_toStartOf="@+id/guideInfo"
+                    app:layout_constraintBottom_toTopOf="@id/textId"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/infoProduit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nonDispo"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/infoManuf"
+                    app:layout_constraintBottom_toTopOf="@+id/infoId"
+                    app:layout_constraintStart_toEndOf="@+id/guideInfo"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/textId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textId"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textProduit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideInfo"
+                    app:layout_constraintBottom_toTopOf="@id/textNomHard"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/infoId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nonDispo"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/infoProduit"
+                    app:layout_constraintBottom_toTopOf="@+id/infoNomHard"
+                    app:layout_constraintStart_toEndOf="@+id/guideInfo"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/textNomHard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textNomHard"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textId"
+                    app:layout_constraintEnd_toStartOf="@+id/guideInfo"
+                    app:layout_constraintBottom_toTopOf="@id/textSonnerie"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/infoNomHard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nonDispo"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/infoId"
+                    app:layout_constraintBottom_toTopOf="@+id/modeSonnerie"
+                    app:layout_constraintStart_toEndOf="@+id/guideInfo"
+                    />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/textSonnerie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textSonnerie"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textNomHard"
+                    app:layout_constraintEnd_toStartOf="@+id/guideInfo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:id="@+id/modeSonnerie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nonDispo"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/infoNomHard"
+                    app:layout_constraintStart_toStartOf="@id/guideInfo"
+                    />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutCpu"
+                android:onClick="CpuView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@id/layoutBattery"
+                app:layout_constraintTop_toBottomOf="@id/LayoutShowInfo"
+                app:layout_constraintRight_toLeftOf="@+id/layoutmemory"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/cpu"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="CPU"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutmemory"
+                android:onClick="RAMView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@+id/layoutstorage"
+                app:layout_constraintTop_toBottomOf="@id/LayoutShowInfo"
+                app:layout_constraintLeft_toRightOf="@+id/layoutCpu"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/ram"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Mémoire"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutBattery"
+                android:onClick="BatteryView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@id/layoutNetwork"
+                app:layout_constraintTop_toBottomOf="@id/layoutCpu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/layoutstorage">
+
+                <ImageView
+                    android:id="@+id/ImageViewBatteryLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/battery_f"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Batterie"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutstorage"
+                android:onClick="StorageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@id/layoutDisplay"
+                app:layout_constraintTop_toBottomOf="@id/layoutmemory"
+                app:layout_constraintLeft_toRightOf="@+id/layoutBattery"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/storage"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Stockage"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutNetwork"
+                android:onClick="NetworkInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutBattery"
+                app:layout_constraintRight_toLeftOf="@+id/layoutDisplay"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/connexion"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Réseau"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutDisplay"
+                android:onClick="DisplayView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutstorage"
+                app:layout_constraintLeft_toRightOf="@+id/layoutNetwork"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/display"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Affichage"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutSensor"
+                android:onClick="SensorView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@+id/layoutNetwork"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/IDK"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/sensor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="SensorView"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/IDK"
+                android:onClick="IDK"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/white_rectangle_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutDisplay"
+                app:layout_constraintLeft_toRightOf="@+id/layoutSensor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_action_no"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Nothing"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:background="@drawable/gradient_animation"
+        android:backgroundTint="@color/colorAccent2"
+        android:id="@+id/BottomNavViewDeviceInfo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_home_24"
-        android:padding="5dp"
-
-        android:onClick="backhome"
-
-        android:background="@drawable/button_style_1"
-
-
-        android:layout_marginBottom="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/LayoutInfoDevice"
+        app:itemIconSize="30dp"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/navigation_menu_device_info"
+        app:tint="@color/colorPrimary"
         />
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:backgroundTint="@color/colorDivider"
+        app:layout_constraintBottom_toTopOf="@+id/BottomNavViewDeviceInfo"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

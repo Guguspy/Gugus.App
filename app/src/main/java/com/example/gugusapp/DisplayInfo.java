@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -86,14 +87,18 @@ public class DisplayInfo extends AppCompatActivity {
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
     }
 
-    public void backhome(View view) {
-        btn_back.startAnimation(scale_up);
-        btn_back.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(DisplayInfo.this, MainActivity.class);
+
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(Menu_Item_Back);
+    }
 
-
+    public void Menu_Item_Back(MenuItem item) {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
     }
 
     private int getNavigationBarHeight() {

@@ -23,17 +23,12 @@ import java.io.File;
 import pl.droidsonroids.gif.GifImageView;
 
 public class SplashScreen extends AppCompatActivity {
-
-    private final int timesplash = 2000;
+    private long backPressedTime;
 
     GifImageView GifPenguin;
     TextView TV_Version, TV_Letter_G, TV_Letter_U,TV_Letter_G2,TV_Letter_U2,TV_Letter_S,TV_Letter_point,TV_Letter_A,TV_Letter_P,TV_Letter_P2;
     Animation top,bottom,left,right;
 
-    /*Handler handler = new Handler();
-    Runnable runnable;
-    int delay = 295;
-    int progressbar = 0;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +68,8 @@ public class SplashScreen extends AppCompatActivity {
         TV_Letter_P2.setAnimation(right);
 
 
-
-
         //rediriger vers la page principale "MainActivity" après 3 secondes.
+        int timesplash = 2000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -86,26 +80,12 @@ public class SplashScreen extends AppCompatActivity {
         }, timesplash);
     }
 
-        /*@Override
-        protected void onResume() {
-            handler.postDelayed(runnable = new Runnable() {
-                public void run() {
-                    handler.postDelayed(runnable, delay);
-                    ProgressBar pb_splash2 = (ProgressBar) findViewById(R.id.pb_splash);
-                    progressbar=progressbar+10;
-                    pb_splash2.setProgress(progressbar);
+    @Override
+    public void onBackPressed() {
 
-                    TextView tv = (TextView) findViewById(R.id.TVpb_splash);
-                    tv.setText("Chargement : "+progressbar+" %");
-
-                }
-            }, delay);
-            super.onResume();
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            return;
         }
-        @Override
-        protected void onPause() {
-            super.onPause();
-            handler.removeCallbacks(runnable); //stop handler when activity not visible super.onPause();
-        }*/
-
+        backPressedTime = System.currentTimeMillis();
+    }
 }

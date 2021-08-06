@@ -10,6 +10,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -50,10 +51,18 @@ public class SensorsInfo extends AppCompatActivity {
 
     }
 
-    public void backhome(View view) {
-        Intent BTN_Back = new Intent(SensorsInfo.this, MainActivity.class);
+    public void Menu_Item_Back(MenuItem item) {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(Menu_Item_Back);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
     }
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -30,6 +31,14 @@ public class StorageInfo extends AppCompatActivity {
                 +" Internal Free : "+addCommasToNumericString(Storage_free()) +" Gb\n\n\n"
                 +ExternalStorage();
         TV_infoStorage.setText(textstorage);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
     }
 
     public String addCommasToNumericString(String digits) {
@@ -84,13 +93,10 @@ public class StorageInfo extends AppCompatActivity {
 
 
 
-
-    public void backhome(View view) {
-        btn_back.startAnimation(scale_up);
-        btn_back.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(StorageInfo.this, MainActivity.class);
+    public void Menu_Item_Back(MenuItem item) {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(Menu_Item_Back);
     }
 
     /*https://stackoverflow.com/questions/3394765/how-to-check-available-space-on-android-device-on-sd-card*/

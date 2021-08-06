@@ -3,16 +3,12 @@ package com.example.gugusapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.res.Resources;
-import android.os.BatteryManager;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,18 +16,15 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    private long backPressedTime;
+    private Toast backToast;
 
     int min = 1;
     int max = 2;
     TextView QuoteInfoView;
 
-    LinearLayout layoutcryptoCurrency, layoutqrCode, layoutinfoappareil,layoutCpu,layoutNetwork,layoutSensor,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail,layoutDoge,layoutWait;
+    LinearLayout layoutcryptoCurrency, layoutqrCode, layoutinfoappareil,layoutCpu,layoutNetwork,layoutSensor,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail,layoutWait;
     Animation scale_up, scale_down;
-
-    Handler handler = new Handler();
-    Runnable runnable;
-    int delay = 100;
-    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,54 +69,44 @@ public class MainActivity extends AppCompatActivity {
         layoutstorage= findViewById(R.id.layoutstorage);
         layoutMail= findViewById(R.id.layoutMail);
         layoutTempMail= findViewById(R.id.layoutTempMail);
-        layoutDoge= findViewById(R.id.layoutDoge);
         layoutWait= findViewById(R.id.layoutWait);
 
         scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
 
-
-
     }
 
     @Override
-    protected void onResume() {
-        handler.postDelayed(runnable = new Runnable() {
-            public void run() {
-                handler.postDelayed(runnable, delay);
+    public void onBackPressed() {
 
-                ImageView ImageViewBatteryLogo = (ImageView) findViewById(R.id.ImageViewBatteryLogo);
-                Resources res = getResources();
 
-                if (checkBattery()>100){
-                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_c));
-                } else if (checkBattery()>40){
-                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_f));
-                }else if (checkBattery()<40){
-                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_e));
-                }
-            }
-        }, delay);
-        super.onResume();
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            //super.onBackPressed();
+            //MainActivity.this.finish();
+            finish();
+            System.exit(0);
+            //super.onDestroy();
+            return;
+        }else{
+            //backToast = Toast.makeText(this, "Back again to exit", Toast.LENGTH_SHORT);
+            LayoutInflater inflater = getLayoutInflater();
+            View customToastLayout = inflater.inflate(R.layout.custom_toast_main_activity, findViewById(R.id.root_layout));
+
+            TextView txtMessage = customToastLayout.findViewById(R.id.txt_message);
+            txtMessage.setText("Press Back again to leave");
+
+            Toast mToast = new Toast(getApplicationContext());
+            mToast.setDuration(Toast.LENGTH_SHORT);
+            mToast.setView(customToastLayout);
+
+            backToast = mToast ;
+
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        handler.removeCallbacks(runnable); //stop handler when activity not visible super.onPause();
-    }
-
-
-    private int checkBattery() {
-        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        Intent batteryStatus = registerReceiver(null, ifilter);
-
-        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-
-        return level;
-    }
-
-
-
 
     public void cryptoCurrency(View view) {
         layoutcryptoCurrency.startAnimation(scale_up);
@@ -136,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     public void qrCode(View view) {
         layoutqrCode.startAnimation(scale_up);
         layoutqrCode.startAnimation(scale_down);
-        Intent QrCode = new Intent(MainActivity.this, QRcodeScan_and_Create.class);
+        Intent QrCode = new Intent(MainActivity.this, QRcodeCreate.class);
         this.finish();
         startActivity(QrCode);
     }
@@ -221,18 +204,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(BTN_Back);
     }
 
-    public void Doge_view(View view) {
-        layoutDoge.startAnimation(scale_up);
-        layoutDoge.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(MainActivity.this, Doge_view.class);
-        this.finish();
-        startActivity(BTN_Back);
-    }
-
     public void noideaview(View view) {
         layoutWait.startAnimation(scale_up);
         layoutWait.startAnimation(scale_down);
-        Toast.makeText(this, "[En cours de developpement]", Toast.LENGTH_SHORT).show();
+        Intent BTN_Back = new Intent(MainActivity.this, sharedpreferencesTEST.class);
+        this.finish();
+        startActivity(BTN_Back);
     }
 
 
@@ -251,4 +228,5 @@ public class MainActivity extends AppCompatActivity {
     public void Menu_Item_Setting(MenuItem item) {
         Toast.makeText(this, "[En cours de developpement]", Toast.LENGTH_SHORT).show();
     }
+
 }

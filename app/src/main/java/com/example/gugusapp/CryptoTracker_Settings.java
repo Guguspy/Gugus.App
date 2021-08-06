@@ -9,24 +9,24 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class CryptoTracker extends AppCompatActivity {
+public class CryptoTracker_Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crypto_tracker);
+        setContentView(R.layout.activity_crypto_tracker__settings);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewCryptoTracker);
-        bottomNavigationView.setSelectedItemId(R.id.cryptotracker);
+        bottomNavigationView.setSelectedItemId(R.id.settings_cryptotracker);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.cryptotracker:
-                        return true;
                     case R.id.settings_cryptotracker:
-                        startActivity(new Intent(getApplicationContext(), CryptoTracker_Settings.class));
+                        return true;
+                    case R.id.cryptotracker:
+                        startActivity(new Intent(getApplicationContext(), CryptoTracker.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

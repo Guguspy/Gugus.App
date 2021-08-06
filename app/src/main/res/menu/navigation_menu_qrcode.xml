@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/generateqrcode"
+        android:icon="@drawable/qrcode_create_48"
+        android:title="Generate"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/Back"
+        android:icon="@drawable/ic_home_x48"
+        android:onClick="Menu_Item_QrCode_Back"
+        android:title="Back"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/scanqrcode"
+        android:icon="@drawable/qrcode_x48"
+        android:title="Scan"/>
+    <!--  -->
+
+</menu>

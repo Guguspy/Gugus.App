@@ -3,16 +3,21 @@ package com.example.gugusapp;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,6 +31,11 @@ public class BatteryInfo extends AppCompatActivity {
 
     ImageButton btn_back;
     Animation scale_up, scale_down;
+
+    Handler handler = new Handler();
+    Runnable runnable;
+    int delay = 100;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +88,54 @@ public class BatteryInfo extends AppCompatActivity {
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
 
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
+        this.finish();
+        startActivity(Menu_Item_Back);
+    }
+
+
+    @Override
+    protected void onResume() {
+        handler.postDelayed(runnable = new Runnable() {
+            @SuppressLint("UseCompatLoadingForDrawables")
+            public void run() {
+                handler.postDelayed(runnable, delay);
+
+                ImageView ImageViewBatteryLogo = (ImageView) findViewById(R.id.ImageMenu);
+                Resources res = getResources();
+
+                IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+                Intent batteryStatus = registerReceiver(null, ifilter);
+
+                int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+
+                boolean charge = false;
+
+                int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+                if (status == BatteryManager.BATTERY_STATUS_CHARGING){
+                    charge=true;
+                }
+
+                if (charge){
+                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_c));
+                } else if (level>39){
+                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_f));
+                }else{
+                    ImageViewBatteryLogo.setImageDrawable(res.getDrawable(R.drawable.battery_e));
+                }
+            }
+        }, delay);
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable); //stop handler when activity not visible super.onPause();
     }
 
     @Override
@@ -165,8 +223,8 @@ public class BatteryInfo extends AppCompatActivity {
                     "Capacity : ");
             TV_2.setText(battery_condition+"\n"+
                     ""+temperature_c+""+(char)0x00B0+"\n"+
-                    ""+power_source+"\n"+
                     ""+charging_status+"\n"+
+                    ""+power_source+"\n"+
                     ""+techBattery+"\n"+
                     ""+voltageBattery+"\n"+
                     ""+batteryCapacity +" mAh");
@@ -184,14 +242,15 @@ public class BatteryInfo extends AppCompatActivity {
             //display the battery charged % in progress bar
             mProgressBar.setProgress(mProgressStatus);
 
+
         }
     };
 
-    public void backhome(View view) {
-        btn_back.startAnimation(scale_up);
-        btn_back.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(BatteryInfo.this, MainActivity.class);
+
+
+    public void Menu_Item_Back(MenuItem item) {
+        Intent Menu_Item_Back = new Intent(this, DeviceInfo.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(Menu_Item_Back);
     }
 }
