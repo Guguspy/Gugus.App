@@ -78,6 +78,7 @@
         android:onClick="ScanView"
     />
 
+
     <TextView
         android:id="@+id/TV_resultQRCode"
 
@@ -89,10 +90,10 @@
 
         android:gravity="center_horizontal"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/viewDivider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="30dp"
 
         android:textColor="@color/white"
         android:textSize="20sp"

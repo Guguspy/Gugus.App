@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int max = 2;
     TextView QuoteInfoView;
 
-    LinearLayout layoutcryptoCurrency, layoutqrCode, layoutinfoappareil,layoutCpu,layoutNetwork,layoutSensor,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail,layoutWait;
+    LinearLayout layoutcryptoCurrency, layoutqrCode, layoutinfoappareil,layoutWakeOnLan, layoutWait2,layoutMail, layoutWifiAnalyzer, LayoutSharedPref;
     Animation scale_up, scale_down;
 
     @Override
@@ -60,16 +60,11 @@ public class MainActivity extends AppCompatActivity {
         layoutcryptoCurrency = findViewById(R.id.layoutcryptoCurrency);
         layoutqrCode = findViewById(R.id.layoutqrCode);
         layoutinfoappareil = findViewById(R.id.layoutinfoappareil);
-        layoutCpu = findViewById(R.id.layoutCpu);
-        layoutNetwork= findViewById(R.id.layoutNetwork);
-        layoutSensor= findViewById(R.id.layoutSensor);
-        layoutBattery= findViewById(R.id.layoutBattery);
-        layoutmemory= findViewById(R.id.layoutmemory);
-        layoutDisplay= findViewById(R.id.layoutDisplay);
-        layoutstorage= findViewById(R.id.layoutstorage);
         layoutMail= findViewById(R.id.layoutMail);
-        layoutTempMail= findViewById(R.id.layoutTempMail);
-        layoutWait= findViewById(R.id.layoutWait);
+        layoutWifiAnalyzer= findViewById(R.id.layoutWifiAnalyzer);
+        LayoutSharedPref= findViewById(R.id.LayoutSharedPref);
+        layoutWakeOnLan = findViewById(R.id.layoutWakeOnLan);
+        layoutWait2= findViewById(R.id.layoutWait2);
 
         scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
@@ -132,86 +127,42 @@ public class MainActivity extends AppCompatActivity {
         startActivity(InfoDevice);
     }
 
-    public void CpuView(View view) {
-        layoutCpu.startAnimation(scale_up);
-        layoutCpu.startAnimation(scale_down);
-        Intent InfoDevice = new Intent(MainActivity.this, CpuInfo.class);
-        this.finish();
-        startActivity(InfoDevice);
-    }
-
-    public void NetworkInfo(View view) {
-        layoutNetwork.startAnimation(scale_up);
-        layoutNetwork.startAnimation(scale_down);
-        Intent NetworkInfo = new Intent(MainActivity.this, NetworkInfo.class);
-        this.finish();
-        startActivity(NetworkInfo);
-    }
-
-    public void SensorView(View view) {
-        layoutSensor.startAnimation(scale_up);
-        layoutSensor.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(MainActivity.this, SensorsInfo.class);
-        this.finish();
-        startActivity(BTN_Back);
-    }
-
-    public void BatteryView(View view) {
-        layoutBattery.startAnimation(scale_up);
-        layoutSensor.startAnimation(scale_down);
-        Intent NetworkInfo = new Intent(MainActivity.this, BatteryInfo.class);
-        this.finish();
-        startActivity(NetworkInfo);
-    }
-
-    public void RAMView(View view) {
-        layoutmemory.startAnimation(scale_up);
-        layoutmemory.startAnimation(scale_down);
-        Intent NetworkInfo = new Intent(MainActivity.this, MemoryInfo.class);
-        this.finish();
-        startActivity(NetworkInfo);
-    }
-
-    public void DisplayView(View view) {
-        layoutDisplay.startAnimation(scale_up);
-        layoutDisplay.startAnimation(scale_down);
-        Intent DisplayView = new Intent(MainActivity.this, DisplayInfo.class);
-        this.finish();
-        startActivity(DisplayView);
-    }
-
-    public void StorageView(View view) {
-        layoutstorage.startAnimation(scale_up);
-        layoutstorage.startAnimation(scale_down);
-        Intent DisplayView = new Intent(MainActivity.this, StorageInfo.class);
-        this.finish();
-        startActivity(DisplayView);
-    }
-
     public void SendMail_view(View view) {
         layoutMail.startAnimation(scale_up);
         layoutMail.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(MainActivity.this, SendMail.class);
+        Intent SendMail = new Intent(MainActivity.this, SendMail.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(SendMail);
     }
 
-    public void tempsmail_view(View view) {
-        layoutTempMail.startAnimation(scale_up);
-        layoutTempMail.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(MainActivity.this, tempsmail.class);
+    public void WakeOnLan(View view) {
+        layoutWakeOnLan.startAnimation(scale_up);
+        layoutWakeOnLan.startAnimation(scale_down);
+        Intent WakeOnLan = new Intent(MainActivity.this, WakeOnLan.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(WakeOnLan);
     }
 
-    public void noideaview(View view) {
-        layoutWait.startAnimation(scale_up);
-        layoutWait.startAnimation(scale_down);
-        Intent BTN_Back = new Intent(MainActivity.this, sharedpreferencesTEST.class);
+    public void WifiAnalyzer(View view) {
+        layoutWifiAnalyzer.startAnimation(scale_up);
+        layoutWifiAnalyzer.startAnimation(scale_down);
+        Intent WifiAnalyzer = new Intent(MainActivity.this, WifiAnalyzer.class);
         this.finish();
-        startActivity(BTN_Back);
+        startActivity(WifiAnalyzer);
     }
 
+    public void SharedPref(View view) {
+        LayoutSharedPref.startAnimation(scale_up);
+        LayoutSharedPref.startAnimation(scale_down);
+        Intent SharedPref = new Intent(MainActivity.this, sharedpreferencesTEST.class);
+        this.finish();
+        startActivity(SharedPref);
+    }
+    public void noideaview3(View view) {
+        layoutWait2.startAnimation(scale_up);
+        layoutWait2.startAnimation(scale_down);
+        Toast.makeText(this, "[Recherche Idée]", Toast.LENGTH_SHORT).show();
+    }
 
 
 
@@ -228,5 +179,4 @@ public class MainActivity extends AppCompatActivity {
     public void Menu_Item_Setting(MenuItem item) {
         Toast.makeText(this, "[En cours de developpement]", Toast.LENGTH_SHORT).show();
     }
-
 }

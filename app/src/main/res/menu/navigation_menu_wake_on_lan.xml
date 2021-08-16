@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/Back"
+        android:icon="@drawable/ic_baseline_keyboard_backspace_24"
+        android:onClick="Menu_Item_Back_WakeOnLan"
+        android:title="Back"/>
+    <!-- android:actionLayout="" -->
+    <item android:id="@+id/WakeOnLanProfil"
+        android:icon="@drawable/ethernet_x48"
+        android:title="profiles"/>
+
+    <item android:id="@+id/WakeOnLanAdd"
+        android:icon="@drawable/add_x48"
+        android:title="Add"/>
+
+</menu>

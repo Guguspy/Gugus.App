@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/Back"
+        android:icon="@drawable/ic_baseline_keyboard_backspace_24"
+        android:onClick="Menu_Item_Back_WifiAnalyzer"
+        android:title="Back"/>
+    <!-- android:actionLayout="" -->
+
+    <item android:id="@+id/WifiShow"
+        android:icon="@drawable/ic_wifion_12"
+        android:title="Wifi"/>
+
+    <item android:id="@+id/WifiRefresh"
+        android:icon="@drawable/refresh_qrcode_x96"
+        android:title="Refresh"/>
+
+    <item android:id="@+id/WifiSettings"
+        android:icon="@drawable/settings_x48"
+        android:title="Settings"/>
+    <!-- android:actionLayout="" -->
+
+
+</menu>

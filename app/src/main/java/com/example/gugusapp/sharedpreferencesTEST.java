@@ -1,11 +1,12 @@
 package com.example.gugusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.security.crypto.MasterKey;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,14 +29,14 @@ public class sharedpreferencesTEST extends AppCompatActivity {
         txtTotal = findViewById(R.id.txt_total);
 
         counter = PrefConfig_TEST.loadTotalFromPref(this);
-        txtTotal.setText("Total :"+counter);
+        txtTotal.setText("Total : "+counter);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counter++;
                 PrefConfig_TEST.saveTotalInPref(getApplicationContext(),counter);
-                txtTotal.setText("Total :"+counter);
+                txtTotal.setText("Total : "+counter);
             }
         });
 
@@ -44,9 +45,10 @@ public class sharedpreferencesTEST extends AppCompatActivity {
             public void onClick(View v) {
                 counter--;
                 PrefConfig_TEST.saveTotalInPref(getApplicationContext(),counter);
-                txtTotal.setText("Total :"+counter);
+                txtTotal.setText("Total : "+counter);
             }
         });
+
     }
 
 

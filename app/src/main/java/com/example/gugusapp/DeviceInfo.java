@@ -50,7 +50,7 @@ public class DeviceInfo extends AppCompatActivity {
 
     ImageButton btn_back;
     Animation scale_up, scale_down;
-    LinearLayout layoutCpu,layoutNetwork,layoutSensor, IDK,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail,layoutTempMail;
+    LinearLayout layoutCpu,layoutNetwork,layoutSensor, IDK,layoutBattery,layoutmemory,layoutDisplay,layoutstorage,layoutMail;
 
     Handler handler = new Handler();
     Runnable runnable;
@@ -95,7 +95,6 @@ public class DeviceInfo extends AppCompatActivity {
         layoutDisplay= findViewById(R.id.layoutDisplay);
         layoutstorage= findViewById(R.id.layoutstorage);
         layoutMail= findViewById(R.id.layoutMail);
-        layoutTempMail= findViewById(R.id.layoutTempMail);
 
         scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sharedpreferencesTEST">
+    tools:context=".WakeOnLan">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
@@ -20,9 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:text="SharedPref"
+            android:text="Wake on Lan"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
-            android:text="TEST"
+            android:text=""
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -46,73 +47,35 @@
             android:layout_marginRight="25dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/information"
+            android:src="@drawable/wol"
             app:layout_constraintBottom_toBottomOf="@id/textHeader"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textHeader" />
+            app:layout_constraintTop_toTopOf="@id/textHeader"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
-        android:id="@+id/RelativeLayoutSharedPref"
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="20dp"
+        android:id="@+id/ListProfileWOL"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
         app:layout_constraintBottom_toTopOf="@+id/viewDivider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/txt_total"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textSize="24sp"/>
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutSharedPref"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/txt_total">
-            <Button
-                android:id="@+id/btn_add"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Add"
-                android:textSize="16sp"
-                />
-            <Button
-                android:id="@+id/btn_del"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Del"
-                android:textSize="16sp"
-                />
-        </LinearLayout>
-        <Button
-            android:id="@+id/btn_reset"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/LinearLayoutSharedPref"
-            android:layout_height="wrap_content"
-            android:text="reset count"
-            android:textSize="16sp"
-            android:onClick="resetPreferences"
-            />
-    </RelativeLayout>
+        android:layout_height="600dp"/>
 
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:background="@drawable/gradient_animation"
         android:backgroundTint="@color/colorAccent2"
-        android:id="@+id/BottomNavViewSharedPref"
+        android:id="@+id/BottomNavViewWakeOnLan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemIconSize="30dp"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation_menu_sharedpreftest"
+        app:menu="@menu/navigation_menu_wake_on_lan"
         app:tint="@color/colorPrimary"
         />
 
@@ -121,6 +84,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:backgroundTint="@color/colorDivider"
-        app:layout_constraintBottom_toTopOf="@+id/BottomNavViewSharedPref"/>
+        app:layout_constraintBottom_toTopOf="@+id/BottomNavViewWakeOnLan"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

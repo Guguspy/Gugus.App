@@ -13,6 +13,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import org.w3c.dom.Text;
 import java.util.Scanner;
 
 public class QRcodeScan extends AppCompatActivity {
+    float x1,x2,y1,y2;
 
     CodeScanner codeScanner;
     CodeScannerView scannerView;
@@ -108,7 +110,9 @@ public class QRcodeScan extends AppCompatActivity {
     public void onPause() {
         codeScanner.releaseResources();
         super.onPause();
+        this.finish();
     }
+
 
     public void CloseonPermissionDenied(){
         Intent Back = new Intent(this, QRcodeCreate.class);

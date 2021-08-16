@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,6 +22,8 @@ import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
 public class QRcodeCreate extends AppCompatActivity {
+    float x1,x2,y1,y2;
+
     ImageButton btn_back;
     Animation scale_up, scale_down;
 
@@ -66,6 +69,32 @@ public class QRcodeCreate extends AppCompatActivity {
         scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
         scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
     }
+
+    public boolean onTouchEvent(MotionEvent touchEvent){
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = touchEvent.getX();
+                y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(x1>x2){
+                    Intent i = new Intent(this, QRcodeScan.class);
+                    this.finish();
+                    startActivity(i);
+            }
+            break;
+        }
+        return false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.finish();
+    }
+
 
     @Override
     public void onBackPressed() {

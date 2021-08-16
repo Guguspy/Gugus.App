@@ -42,6 +42,13 @@ public class CryptoTracker extends AppCompatActivity {
         startActivity(Menu_Item_Back);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.finish();
+    }
+
+
     public void Menu_Item_QrCode_Back(MenuItem item) {
         Intent Menu_Item_QrCode_Back = new Intent(this, MainActivity.class);
         this.finish();

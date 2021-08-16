@@ -3,8 +3,9 @@
     package="com.example.gugusapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -18,21 +19,58 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".sharedpreferencesTEST"></activity>
-        <activity android:name=".SendMail_Settings" />
-        <activity android:name=".SendMailFast" />
-        <activity android:name=".CryptoTracker_Settings" />
-        <activity android:name=".CryptoTracker" />
-        <activity android:name=".QRcodeScan" />
-        <activity android:name=".QRcodeCreate" />
-        <activity android:name=".StorageInfo" />
-        <activity android:name=".MemoryInfo" />
-        <activity android:name=".CpuInfo" />
-        <activity android:name=".BatteryInfo" />
-        <activity android:name=".DisplayInfo" />
-        <activity android:name=".NetworkInfo" />
-        <activity android:name=".DeviceInfo" />
-        <activity android:name=".SensorsInfo" />
+        <activity android:name=".WakeOnLanAdd" />
+        <activity
+            android:name=".WakeOnLan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WifiAnalyzer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sharedpreferencesTEST"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SendMail_Settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SendMailFast"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CryptoTracker_Settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CryptoTracker"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRcodeScan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRcodeCreate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StorageInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MemoryInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CpuInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BatteryInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DisplayInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NetworkInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DeviceInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SensorsInfo"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SendMail"
             android:screenOrientation="portrait" />

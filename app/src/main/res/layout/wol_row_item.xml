@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:id="@+id/RelativeLayoutWOLProfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="113dp"
+            android:layout_height="113dp"
+            android:id="@+id/ProfilTypeImg"
+            android:src="@drawable/type_monitor"
+            android:contentDescription="ProfileType" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="None"
+            android:layout_toEndOf="@+id/ProfilTypeImg"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textSize="15sp"
+            android:id="@+id/NameProfil_WOL"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[IP]"
+            android:layout_toEndOf="@+id/ProfilTypeImg"
+            android:layout_below="@+id/NameProfil_WOL"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textSize="10sp"
+            android:id="@+id/IPProfil_WOL"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[MAC]"
+            android:layout_toEndOf="@+id/ProfilTypeImg"
+            android:layout_below="@+id/IPProfil_WOL"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textSize="10sp"
+            android:id="@+id/MACProfil_WOL"/>
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/delete_x48"
+            android:backgroundTint="#F00"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/MACProfil_WOL"
+            android:id="@+id/DelProfil"
+            android:contentDescription="Del" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
