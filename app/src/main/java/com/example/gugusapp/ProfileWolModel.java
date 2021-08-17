@@ -9,22 +9,22 @@ public class ProfileWolModel {
     String IPProfil;
     String MACProfil;
     String TypeProfil;
+    String FavProfil;
 
-    public ProfileWolModel(int imageType, String nameProfil, String IPProfil, String MACProfil, String TypeProfil) {
+    public ProfileWolModel(int imageType, String nameProfil, String IPProfil, String MACProfil, String TypeProfil, String favProfil) {
         this.ImageType = imageType;
         this.NameProfil = nameProfil;
         this.IPProfil = IPProfil;
         this.MACProfil = MACProfil;
         this.TypeProfil = TypeProfil;
+        this.FavProfil = favProfil;
     }
 
     public int getImageType() {
         return ImageType;
     }
 
-    public void setImageType(int imageType) {
-        ImageType = imageType;
-    }
+    public void setImageType(int imageType) { ImageType = imageType; }
 
     public String getNameProfil() {
         return NameProfil;
@@ -56,5 +56,13 @@ public class ProfileWolModel {
 
     public void setTypeProfil(String TypeProfil) {
         this.TypeProfil = TypeProfil;
+    }
+
+    public String getFavProfil() {
+        return FavProfil;
+    }
+
+    public void setFavProfil(String favProfil) {
+        FavProfil = favProfil;
     }
 }

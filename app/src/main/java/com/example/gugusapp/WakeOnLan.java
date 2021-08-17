@@ -39,8 +39,8 @@ public class WakeOnLan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wake_on_lan);
-        
 
+        loadDataWolProfil();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewWakeOnLan);
         bottomNavigationView.setSelectedItemId(R.id.WakeOnLanProfil);
@@ -65,7 +65,6 @@ public class WakeOnLan extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        loadDataWolProfil();
 
 
         ProfileWOL_Adapter adapter = new ProfileWOL_Adapter(ProfilWOL_List, this);

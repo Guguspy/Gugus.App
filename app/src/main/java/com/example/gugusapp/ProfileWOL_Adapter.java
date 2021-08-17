@@ -3,6 +3,7 @@ package com.example.gugusapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,12 +42,18 @@ public class ProfileWOL_Adapter extends RecyclerView.Adapter<ProfileWOL_Adapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProfileWOL_Adapter.ProfileWOLHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfileWOLHolder holder, int position) {
 
         holder.ProfilTypeImg.setImageResource(Profil_WOL_List.get(position).ImageType);
         holder.NameProfil_WOL.setText(Profil_WOL_List.get(position).NameProfil);
         holder.IPProfil_WOL.setText("IP : " + Profil_WOL_List.get(position).IPProfil);
         holder.MACProfil_WOL.setText("MAC : " + Profil_WOL_List.get(position).MACProfil);
+        String Fav= Profil_WOL_List.get(position).FavProfil;
+        if (Fav.equals("Fav")){
+            holder.FavProfil.setBackgroundResource(R.drawable.favorite_yes_x64);
+        }else{
+            holder.FavProfil.setBackgroundResource(R.drawable.favorite_x64);
+        }
 
         holder.RelativeLayoutWOLProfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +86,38 @@ public class ProfileWOL_Adapter extends RecyclerView.Adapter<ProfileWOL_Adapter.
         holder.DelProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Profil_WOL_List.remove(position);
-                notifyDataSetChanged();
 
+                if (Fav.equals("Fav")){
+                    Toast.makeText(context, "Impossible de retirer car en Fav", Toast.LENGTH_SHORT).show();
+                }else{
+                    Profil_WOL_List.remove(position);
+                    notifyDataSetChanged();
+                }
+            }
+        });
+
+        holder.FavProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Fav.equals("Fav")){
+                    Toast.makeText(context, "Retiré des Favoris", Toast.LENGTH_SHORT).show();
+                    Profil_WOL_List.set(position, new ProfileWolModel(Profil_WOL_List.get(position).ImageType,
+                            Profil_WOL_List.get(position).NameProfil,
+                            Profil_WOL_List.get(position).IPProfil,
+                            Profil_WOL_List.get(position).MACProfil,
+                            Profil_WOL_List.get(position).TypeProfil,
+                            "NotFav"));
+                    notifyDataSetChanged();
+                }else if (Fav.equals("NotFav")){
+                    Toast.makeText(context, "Ajouté aux Favoris", Toast.LENGTH_SHORT).show();
+                    Profil_WOL_List.set(position, new ProfileWolModel(Profil_WOL_List.get(position).ImageType,
+                            Profil_WOL_List.get(position).NameProfil,
+                            Profil_WOL_List.get(position).IPProfil,
+                            Profil_WOL_List.get(position).MACProfil,
+                            Profil_WOL_List.get(position).TypeProfil,
+                            "Fav"));
+                    notifyDataSetChanged();
+                }
             }
         });
     }
@@ -97,7 +133,7 @@ public class ProfileWOL_Adapter extends RecyclerView.Adapter<ProfileWOL_Adapter.
         TextView NameProfil_WOL, IPProfil_WOL, MACProfil_WOL;
         ImageView ProfilTypeImg;
         RelativeLayout RelativeLayoutWOLProfil;
-        ImageButton DelProfil;
+        ImageButton DelProfil, FavProfil;
 
         public ProfileWOLHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,6 +143,7 @@ public class ProfileWOL_Adapter extends RecyclerView.Adapter<ProfileWOL_Adapter.
             ProfilTypeImg = itemView.findViewById(R.id.ProfilTypeImg);
             RelativeLayoutWOLProfil = itemView.findViewById(R.id.RelativeLayoutWOLProfil);
             DelProfil = itemView.findViewById(R.id.DelProfil);
+            FavProfil = itemView.findViewById(R.id.FavProfil);
         }
 
     }

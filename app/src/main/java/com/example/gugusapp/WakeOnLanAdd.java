@@ -342,10 +342,10 @@ public class WakeOnLanAdd extends AppCompatActivity {
                     ImageView imageView = customToastLayout.findViewById(R.id.icon);
                     if(Type.equals("Computer")) {
                         imageView.setImageResource(R.drawable.type_monitor);
-                        ProfilWOL_List.add(new ProfileWolModel(R.drawable.type_monitor, Name, ip, mac, Type));
+                        ProfilWOL_List.add(new ProfileWolModel(R.drawable.type_monitor, Name, ip, mac, Type, "NotFav"));
                     }else if(Type.equals("Laptop")){
                         imageView.setImageResource(R.drawable.type_laptop);
-                        ProfilWOL_List.add(new ProfileWolModel(R.drawable.type_laptop, Name, ip, mac, Type));
+                        ProfilWOL_List.add(new ProfileWolModel(R.drawable.type_laptop, Name, ip, mac, Type, "NotFav"));
                     }
 
                     Toast mToast = new Toast(getApplicationContext());
