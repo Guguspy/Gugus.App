@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
+    android:id="@+id/WOLCardview"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_marginTop="10dp"
@@ -30,7 +31,7 @@
             android:layout_toEndOf="@+id/ProfilTypeImg"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:textSize="15sp"
             android:id="@+id/NameProfil_WOL"/>
 
@@ -41,8 +42,8 @@
             android:layout_toEndOf="@+id/ProfilTypeImg"
             android:layout_below="@+id/NameProfil_WOL"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
-            android:textSize="10sp"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
             android:id="@+id/IPProfil_WOL"/>
 
         <TextView
@@ -52,30 +53,39 @@
             android:layout_toEndOf="@+id/ProfilTypeImg"
             android:layout_below="@+id/IPProfil_WOL"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="15dp"
-            android:textSize="10sp"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
             android:id="@+id/MACProfil_WOL"/>
-
-        <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/delete_x48"
-            android:backgroundTint="#F00"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/MACProfil_WOL"
-            android:id="@+id/DelProfil"
-            android:contentDescription="Del" />
-
-        <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/favorite_x64"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/FavProfil"
-            android:contentDescription="Fav" />
-
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="end">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/favorite_x64"
+            android:layout_gravity="end"
+            android:id="@+id/FavProfil"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="Fav" />
+
+        <ImageButton
+            android:layout_below="@+id/FavProfil"
+            android:layout_gravity="bottom"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/delete_x48"
+            android:backgroundTint="#F00"
+            android:id="@+id/DelProfil"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="Del" />
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

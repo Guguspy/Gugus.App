@@ -35,6 +35,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class WakeOnLanAdd extends AppCompatActivity {
+
+    private Toast AddPROFILWOLToast;
+
     Animation scale_up, scale_down;
     float x1,x2,y1,y2;
 
@@ -337,7 +340,6 @@ public class WakeOnLanAdd extends AppCompatActivity {
 
                     TextView txtMessage = customToastLayout.findViewById(R.id.txt_message);
                     txtMessage.setText(messageToast);
-                    txtMessage.setTextColor(Color.GREEN);
 
                     ImageView imageView = customToastLayout.findViewById(R.id.icon);
                     if(Type.equals("Computer")) {
@@ -352,7 +354,8 @@ public class WakeOnLanAdd extends AppCompatActivity {
                     mToast.setDuration(Toast.LENGTH_SHORT);
                     mToast.setView(customToastLayout);
 
-                    mToast.show();
+                    AddPROFILWOLToast = mToast ;
+                    AddPROFILWOLToast.show();
 
                     saveDataWolProfil();
 

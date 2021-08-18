@@ -55,6 +55,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layoutAnimation="@anim/layout_animation"
         android:padding="20dp"
         android:id="@+id/ListProfileWOL"
         app:layout_constraintRight_toRightOf="parent"

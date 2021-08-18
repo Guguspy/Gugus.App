@@ -2,6 +2,7 @@ package com.example.gugusapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,11 +32,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WakeOnLan extends AppCompatActivity {
+    Animation scale_up, scale_down;
     float x1,x2,y1,y2;
     private Toast backToast;
 
     RecyclerView recyclerView;
     List<ProfileWolModel> ProfilWOL_List;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +71,13 @@ public class WakeOnLan extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-
-
         ProfileWOL_Adapter adapter = new ProfileWOL_Adapter(ProfilWOL_List, this);
         recyclerView.setAdapter(adapter);
+
+
+        scale_up = AnimationUtils.loadAnimation(this,R.anim.scale_up);
+        scale_down = AnimationUtils.loadAnimation(this,R.anim.scale_down);
+
     }
 
     private void saveDataWolProfil() {
@@ -112,6 +121,7 @@ public class WakeOnLan extends AppCompatActivity {
         }
         return false;
     }
+
 
 
 
