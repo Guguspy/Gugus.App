@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:id="@+id/WifiAnalyzerCardview"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:id="@+id/RelativeLayoutWifiAnalyzer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/WifiAnalyzerIMG"
+            android:src="@drawable/wifiicon"
+            android:contentDescription="Wifi" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:layout_toEndOf="@+id/WifiAnalyzerIMG"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="15dp"
+            android:textSize="15sp"
+            android:id="@+id/NameWifi"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Ghz]"
+            android:layout_toEndOf="@+id/WifiAnalyzerIMG"
+            android:layout_below="@+id/NameWifi"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="15dp"
+            android:textSize="12sp"
+            android:id="@+id/Ghz_Wifi"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[CH]"
+            android:layout_toEndOf="@+id/WifiAnalyzerIMG"
+            android:layout_below="@+id/Ghz_Wifi"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="15dp"
+            android:textSize="12sp"
+            android:id="@+id/Channel_Wifi"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[dstce]"
+            android:layout_toEndOf="@+id/WifiAnalyzerIMG"
+            android:layout_below="@+id/Channel_Wifi"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="15dp"
+            android:textSize="12sp"
+            android:id="@+id/BW_Wifi"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -2,6 +2,8 @@ package com.example.gugusapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,11 +12,13 @@ import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,12 +28,15 @@ import java.util.List;
 
 public class WifiAnalyzer extends AppCompatActivity {
 
+    private Toast backToast;
+
     private WifiManager wifiManager;
-    private ListView listView;
-    private int size = 0;
     private List<ScanResult> results;
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayAdapter adapter;
+    WifiList_Adapter adapter;
+
+
+    RecyclerView recyclerView;
+    List<ListWifiModel> Wifi_List;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,13 @@ public class WifiAnalyzer extends AppCompatActivity {
             }
         });
 
-        listView = findViewById(R.id.wifiList);
+        Wifi_List = new ArrayList<>();
+
+
+        recyclerView=findViewById(R.id.ListWifiDectected);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         if (!wifiManager.isWifiEnabled()) {
@@ -65,15 +78,34 @@ public class WifiAnalyzer extends AppCompatActivity {
             wifiManager.setWifiEnabled(true);
         }
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
-        listView.setAdapter(adapter);
+
+        adapter = new WifiList_Adapter(Wifi_List, this);
+        recyclerView.setAdapter(adapter);
+
         scanWifi();
     }
     private void scanWifi() {
-        arrayList.clear();
+        Wifi_List = new ArrayList<>();
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         wifiManager.startScan();
-        Toast.makeText(this, "Scanning WiFi ...", Toast.LENGTH_SHORT).show();
+        LayoutInflater inflater = getLayoutInflater();
+        View customToastLayout = inflater.inflate(R.layout.custom_toast_main_activity, findViewById(R.id.root_layout));
+
+        ImageView imageView = customToastLayout.findViewById(R.id.icon);
+
+        imageView.setImageResource(R.drawable.wifianalyzer);
+
+        TextView txtMessage = customToastLayout.findViewById(R.id.txt_message);
+
+        txtMessage.setText("Scanning WiFi ...");
+
+        Toast mToast = new Toast(getApplicationContext());
+        mToast.setDuration(Toast.LENGTH_SHORT);
+        mToast.setView(customToastLayout);
+
+        backToast = mToast ;
+
+        backToast.show();
     }
 
     BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
@@ -83,25 +115,41 @@ public class WifiAnalyzer extends AppCompatActivity {
             unregisterReceiver(this);
 
             for (ScanResult scanResult : results) {
-                String WifiResultString ;
+                /*String WifiResultString ;*/
+
+                String SSIDNAME;
 
                 int freq = scanResult.frequency;
                 freq /=1000;
 
-                WifiResultString = "[-------------------------------------------------------------------------]\n"
-                        + "SSID : " + scanResult.SSID + "\n---  ---  ---  ---  ---  ---  ---  ---  ---\n"
-                        + "capabilities : " + scanResult.capabilities+ "\n---  ---  ---  ---  ---  ---  ---  ---  ---\n"
-                        + "operatorFriendlyName : " + scanResult.operatorFriendlyName + "\n---  ---  ---  ---  ---  ---  ---  ---  ---\n"
-                        + "frequency : " + freq + "GHz\n---  ---  ---  ---  ---  ---  ---  ---  ---\n"
-                        + "channelWidth : " + scanResult.channelWidth + "\n[-------------------------------------------------------------------------]\n";
+                if (scanResult.SSID.isEmpty()){
+                    Wifi_List.add(new ListWifiModel(R.drawable.wifiiconhidden,
+                            "SSID : Hidden SSID",
+                            "Signal : "+String.valueOf(freq)+" Ghz",
+                            "Channel : "+String.valueOf(scanResult.channelWidth),
+                            "Encryption : "+scanResult.capabilities));
+                }else{
+                    Wifi_List.add(new ListWifiModel(R.drawable.wifiicon,
+                            "SSID : "+scanResult.SSID,
+                            "Signal : "+String.valueOf(freq)+" Ghz",
+                            "Channel : "+String.valueOf(scanResult.channelWidth),
+                            "Encryption : "+scanResult.capabilities));
+                }
 
-                arrayList.add(WifiResultString);
-                adapter.notifyDataSetChanged();
             }
+
+            adapter = new WifiList_Adapter(Wifi_List, context);
+            recyclerView.setAdapter(adapter);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavViewWifiAnalyzer);
+                    bottomNavigationView.setSelectedItemId(R.id.WifiShow);
+                }
+            }, 2000);
         };
     };
-
-
 
     @Override
     public void onBackPressed() {
